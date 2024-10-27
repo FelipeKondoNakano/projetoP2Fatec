@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style-cadastrarProfessor.css">
+    <title>Cadastrar Professor</title>
+</head>
+
+<body>
+
+    <header class="head">
+        <h1>Sistema de Avaliações de Professores</h1>
+        <p><a href="home.html">Home</a></p>
+    </header>
+
+    <nav class="menu">
+        <li><a href="#Cadastro">Cadastrar</a>
+            <ul class="cadastro">
+                <li><a href="cadastrarProfessor.html">Cadastrar Professor</a></li>
+                <li><a href="#instituicoes">Cadastrar Instituição</a></li>
+                <li><a href="#cursos">Cadastrar Curso</a></li>
+                <li><a href="#usuarios">Cadastrar Usuário</a></li>
+                <li><a href="#materia">Cadastrar Matéria</a></li>
+            </ul>
+        </li>
+        <li><a href="#Cadastro">Visualização</a>
+            <ul class="visualizar">
+                <li><a href="#">Visualizar Professores</a></li>
+                <li><a href="#">Visualizar Instituições</a></li>
+                <li><a href="#">Visualizar Curso</a></li>
+                <li><a href="#">Visualizar Usuário</a></li>
+                <li><a href="#">Visualizar Matérias</a></li>
+            </ul>
+        </li>
+        <li><a href="#Avaliacao">Avaliações</a>
+            <ul class="avaliacao">
+                <li><a href="#">Avaliar Professores</a></li>
+                <li><a href="#">Avaliar Instituições</a></li>
+                <li><a href="#">Avaliar Cursos</a></li>
+                <li><a href="#">Avaliar Matérias</a></li>
+            </ul>
+        </li>
+    </nav>
+
+    <section class="body">
+        <form action="cadastrarProfessor.php" method="post">
+            <h2>Cadastar Professor</h2>
+            <label>Nome: </label>
+            <input type="text" name="nome" required>
+
+            <label>Matéria Lecionada: </label>
+            <input type="text" name="materia" required>
+
+            <label>Instituição:</label>
+            <input type="text" name="instituicao" required>
+        </form>
+    </section>
+
+    <footer class="foot">
+        <p>&copy; Direitos Acadêmicos reservados</p>
+    </footer>
+</body>
