@@ -10,12 +10,38 @@
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="#logout">Sair</a></p>
+        <p><a href="home.html">Home</a></p>
     </header>
+
+    <nav class="menu">
+        <li><a href="#Cadastro">Cadastrar</a>
+            <ul class="cadastro">
+                <li><a href="cadastroInstituicao.html">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.html">Cadastrar Curso</a></li>
+                <li><a href="cadastroUsuario.html">Cadastrar Usuário</a></li>
+                <li><a href="cadastrarMateria.html">Cadastrar Matéria</a></li>
+            </ul>
+        </li>
+        <li><a href="#Cadastro">Visualização</a>
+            <ul class="visualizar">
+                <li><a href="#">Visualizar Instituições</a></li>
+                <li><a href="#">Visualizar Curso</a></li>
+                <li><a href="#">Visualizar Usuário</a></li>
+                <li><a href="#">Visualizar Matérias</a></li>
+            </ul>
+        </li>
+        <li><a href="#Avaliacao">Avaliações</a>
+            <ul class="avaliacao">
+                <li><a href="#">Avaliar Instituições</a></li>
+                <li><a href="#">Avaliar Cursos</a></li>
+                <li><a href="#">Avaliar Matérias</a></li>
+            </ul>
+        </li>
+    </nav>
 
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-        
+
         <nav class="actions">
             <button id="cadastro-instituicao">Cadastrar Instituição</button>
             <button id="pesquisar-instituicao">Pesquisar Instituição</button>
@@ -23,16 +49,16 @@
 
         <section class="cadastro-container" id="cadastroContainer" style="display: none;">
             <h3>Cadastro de Instituição</h3>
-            
+
             <form>
                 <input type="text" id="nome" placeholder="Digite o nome da instituição" required>
-                
+
                 <input type="text" id="cidade" placeholder="Digite a cidade" required>
-                
+
                 <input type="text" id="estado" placeholder="Digite o estado" required>
-                
+
                 <textarea id="comentario" placeholder="Deixe seu comentário" required></textarea>
-                
+
                 <label for="nota">Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
                     <input type="radio" id="star5" name="rating" value="5" />
@@ -46,7 +72,7 @@
                     <input type="radio" id="star1" name="rating" value="1" />
                     <label for="star1">★</label>
                 </div>
-                
+
                 <button type="submit">Cadastrar Instituição</button>
             </form>
         </section>
@@ -57,11 +83,11 @@
     </footer>
 
     <script>
-        document.getElementById("cadastro-instituicao").onclick = function() {
+        document.getElementById("cadastro-instituicao").onclick = function () {
             document.getElementById("cadastroContainer").style.display = "block";
         };
-        
-        document.getElementById("pesquisar-instituicao").onclick = function() {
+
+        document.getElementById("pesquisar-instituicao").onclick = function () {
             // Lógica para pesquisar a instituição pode ser implementada aqui.
             alert("Funcionalidade de pesquisa ainda não implementada.");
         };
