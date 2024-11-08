@@ -3,7 +3,7 @@
 $servername = "localhost"; // Servidor onde o banco de dados está hospedado
 $username = "root";        // Usuário do banco de dados
 $password = "";            // Senha do banco de dados
-$dbname = "nome_do_banco"; // Nome do banco de dados
+$dbname = "avaliaEdu"; // Nome do banco de dados
 
 // Criação da conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
