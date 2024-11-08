@@ -35,69 +35,13 @@ body{
 /*-------Fim Header-------*/
 
 /*-------Navegação-------*/
-.menu{
+.alerta{
     background-color: rgb(128,128,128);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all .3s ease-in-out;
-}
-.menu li{
-    width: 300px;
-    display: block;
-    flex-direction: column;
-    position: relative;
-    transition:.3s ease-in-out;
-}
-.menu a{
-    display: flex;
-    color: rgb(0,0,0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-.menu a:hover{
-    background-color: rgb(184,115,51);
-
-}
-.menu li:hover .cadastro,
-.menu li:hover .visualizar,
-.menu li:hover .avaliacao{
-    display: block;
-    transition:.3s ease-in-out;
-}       
-
-/*Menu Suspenso*/
-.cadastro,
-.visualizar,
-.avaliacao{
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 100%;
-    box-shadow: 5px 10px 20px rgba(0,0,0, .3);
-}
-.cadastro a,
-.visualizar a,
-.avaliacao a{
-    background-color: rgb(205,205,205);
-    display: block;
-    padding: 16px 32px;
-    text-decoration: none;
-    color: rgb(0,0,0);
-    font-size: 16px;
-    transition: all .3s ease-in-out;
-}
-.cadastro a:hover,
-.visualizar a:hover,
-.avaliacao a:hover{
-    background-color: rgb(184,115,51);
-    color: rgb(255,255,255);
-}
-/*-------Fim Navegação-------*/
+    padding: 8px;
+}    
 
 /*-------Corpo-------*/
 .body{
@@ -105,20 +49,18 @@ body{
     display: flex;
     align-items: flex-start;
     flex-direction: row;
-    font-size: 18px;
-    padding: 10px;
-
+    font-size: 20px;
+    padding: 20px;
+    gap: 20px;
 }
 .body .titulo{
     color: rgb(0,0,0);
-    padding: 10px;
-    margin-left: 50px;
-    max-width: 80%;
+    padding: 15px;
+    max-width: 100%;
 }
 .body .texto{
-    padding: 10px;
-    margin-left: 50px;
-    max-width: 70%;
+    padding: 15px;
+    max-width: 100%;
     text-align: justify;
 }
 .body span{
@@ -126,22 +68,21 @@ body{
     font-weight:bolder;
 }
 .body .content{
-    max-width: 60%;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
 }
 .body img{
-    width: 55%;
+    width: 50%;
     height: auto;
-    border-radius: 30px;
-    margin-right: 10px;
+    border-radius: 20px;
 }
 /*-------Fim Corpo-------*/
 
 /*-------Footer-------*/
 .foot{
     width: 100%;
-    height: 120px;
+    height: 50px;
     display:flex;
     align-items: center;
     justify-content: center;

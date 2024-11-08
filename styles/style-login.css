@@ -90,7 +90,9 @@ body {
 }
 
 .login-container button:hover {
-    background-color: rgb(150, 90, 45);
+    background-color: #ffffff;
+    border: 1.5px solid rgb(150, 90, 45);
+    color: rgb(150, 90, 45);
 }
 
 /* Link para cadastro */
@@ -117,7 +119,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(128, 128, 128);
-    color: #ffffff;
     position: fixed;
     bottom: 0;
 }
