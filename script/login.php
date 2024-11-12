@@ -1,37 +1,31 @@
 <?php
-// Conexão com o banco de dados
-$servername = "localhost"; // Servidor onde o banco de dados está hospedado
-$username = "root";        // Usuário do banco de dados
-$password = "";            // Senha do banco de dados
-$dbname = "avaliaEdu"; // Nome do banco de dados
+include_once("configBD.php");
 
-// Criação da conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificação da conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Verificação de envio do formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["submit"])) {
     // Recebe os dados do formulário
     $email = $_POST['email'];
     $senha = $_POST['password'];
 
-    // Consulta SQL para verificar se o usuário existe
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    $result = $conn->query($sql);
+    // Consulta SQL para buscar o usuário pelo email
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    $result = $conexao->query($sql);
 
     if ($result->num_rows > 0) {
-        // Se o usuário for encontrado
-        echo "Login realizado com sucesso!";
+        // Obtém o usuário do banco de dados
+        $usuario = $result->fetch_assoc();
+
+        // Verifica a senha utilizando password_verify
+        if (password_verify($senha, $usuario['senha'])) {
+            // Login bem-sucedido
+            header("Location: ../userHome.html");
+            exit();
+        } else {
+            // Senha incorreta
+            echo "Email ou senha incorretos!";
+        }
     } else {
-        // Se o usuário não for encontrado
+        // Usuário não encontrado
         echo "Email ou senha incorretos!";
     }
 }
-
-// Fechamento da conexão
-$conn->close();
 ?>
