@@ -1,37 +1,41 @@
 <?php
-// Conexão com o banco de dados
-$servername = "localhost"; // Servidor onde o banco de dados está hospedado
-$username = "root";        // Usuário do banco de dados
-$password = "";            // Senha do banco de dados
-$dbname = "nome_do_banco"; // Nome do banco de dados
+    include_once("configBD.php");
 
-// Criação da conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+    if(isset($_POST["submit"])) {
+        // Atribuir valores das variáveis
+        $nome = $_POST["inputNome"];
+        $id = $_POST["inputId"];
+        $email = $_POST["inputEmail"];
+        $ra = $_POST["inputRa"];
+        $instituicao = $_POST["inputInstituicao"];
+        $curso = $_POST["inputCurso"];
+        $periodo = $_POST["periodo"];
+        $senha = $_POST["password"];
+        $confirmacao = $_POST["checkPassword"];
 
-// Verificação da conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+        // Verificar se as senhas coincidem
+        if ($senha === $confirmacao) {
+            // Gerar o hash da senha
+            $senhaHash = password_hash($senha, PASSWORD_BCRYPT); // Utilizando bcrypt para criar o hash
 
-// Verificação de envio do formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recebe os dados do formulário
-    $email = $_POST['email'];
-    $senha = $_POST['password'];
+            // Preparar a consulta para inserir os dados no banco
+            $resultado = mysqli_query($conexao, "INSERT INTO usuarios(nome, id, email, pk_Ra, instituicao, curso, periodo, senha) 
+                                                VALUES('$nome', '$id', '$email', '$ra', '$instituicao', '$curso', '$periodo', '$senhaHash')");
 
-    // Consulta SQL para verificar se o usuário existe
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Se o usuário for encontrado
-        echo "Login realizado com sucesso!";
+            if ($resultado) {
+                // Redirecionar para a página de login após o cadastro
+                header("Location: ../login.php");
+                exit(); 
+            } else {
+                // Caso ocorra algum erro na inserção
+                echo "Erro ao cadastrar o usuário: " . mysqli_error($conexao);
+            }
+        } else {
+            // As senhas não coincidem
+            echo "As senhas não coincidem. Tente novamente.";
+        }
     } else {
-        // Se o usuário não for encontrado
-        echo "Email ou senha incorretos!";
+        // Caso algum campo obrigatório não tenha sido preenchido
+        echo "Por favor, preencha todos os campos.";
     }
-}
-
-// Fechamento da conexão
-$conn->close();
 ?>

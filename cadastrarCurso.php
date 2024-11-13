@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/style-cadastroGeral.css">
-    <title>Painel do Usuário</title>
+    <title>Cadastrar Curso</title>
 </head>
 
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="home.html">Home</a></p>
+        <p><a href="userHome.php">Home</a></p>
     </header>
 
     <nav class="menu">
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
-                <li><a href="cadastroInstituicao.html">Cadastrar Instituição</a></li>
-                <li><a href="cadastrarCurso.html">Cadastrar Curso</a></li>
-                <li><a href="cadastroUsuario.html">Cadastrar Usuário</a></li>
-                <li><a href="cadastrarMateria.html">Cadastrar Matéria</a></li>
+                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+                <li><a href="cadastroUsuario.php">Cadastrar Usuário</a></li>
+                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
             </ul>
         </li>
         <li><a href="#Cadastro">Visualização</a>
@@ -43,36 +43,34 @@
         <h2>Painel do Usuário</h2>
 
         <nav class="actions">
-            <button id="cadastro-instituicao">Cadastrar Matéria</button>
-            <button id="reavaliar-instituicao">Reavaliar Matéria</button>
-            <button id="pesquisar-instituicao">Pesquisar Matéria</button>
+            <button id="cadastro-curso">Cadastrar Curso</button>
+            <button id="reavaliar-curso">Reavaliar Curso</button>
+            <button id="pesquisar-curso">Pesquisar Curso</button>
         </nav>
 
         <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Matéria</h3>
+            <h3>Cadastro de Curso</h3>
 
-            <form>
-                <input type="text" id="nome" placeholder="Digite o nome da matéria" required>
+            <form method="POST" action="script/cadastroCurso.php">
+                <input type="text" id="nome" name="nomeCurso" placeholder="Digite o nome do curso" required>
 
-                <input type="text" id="estado" placeholder="Digite o período" required>
-
-                <textarea id="comentario" placeholder="Deixe seu comentário" required></textarea>
+                <textarea id="comentario" name="inputTexto" placeholder="Deixe seu comentário" required></textarea>
 
                 <label for="nota">Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
-                    <input type="radio" id="star5" name="rating" value="5" />
-                    <label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label for="star2">★</label>
                     <input type="radio" id="star1" name="rating" value="1" />
                     <label for="star1">★</label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2">★</label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3">★</label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4">★</label>
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5">★</label>
                 </div>
 
-                <button type="submit">Cadastrar Matéria</button>
+                <button type="submit" name="submit">Cadastrar Curso</button>
             </form>
         </section>
     </main>
@@ -82,11 +80,11 @@
     </footer>
 
     <script>
-        document.getElementById("cadastro-instituicao").onclick = function () {
+        document.getElementById("cadastro-curso").onclick = function () {
             document.getElementById("cadastroContainer").style.display = "block";
         };
 
-        document.getElementById("pesquisar-instituicao").onclick = function () {
+        document.getElementById("pesquisar-curso").onclick = function () {
             // Lógica para pesquisar a instituição pode ser implementada aqui.
             alert("Funcionalidade de pesquisa ainda não implementada.");
         };

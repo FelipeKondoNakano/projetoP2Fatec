@@ -1,37 +1,31 @@
 <?php
-// Conexão com o banco de dados
-$servername = "localhost"; // Servidor onde o banco de dados está hospedado
-$username = "root";        // Usuário do banco de dados
-$password = "";            // Senha do banco de dados
-$dbname = "avaliaEdu"; // Nome do banco de dados
+    include_once("configBD.php");
 
-// Criação da conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+    if (isset($_POST["submit"])) {
+        // Recebe os dados do formulário
+        $email = $_POST['email'];
+        $senha = $_POST['password'];
 
-// Verificação da conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+        // Consulta SQL para buscar o usuário pelo email
+        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+        $result = $conexao->query($sql);
 
-// Verificação de envio do formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recebe os dados do formulário
-    $email = $_POST['email'];
-    $senha = $_POST['password'];
+        if ($result->num_rows > 0) {
+            // Obtém o usuário do banco de dados
+            $usuario = $result->fetch_assoc();
 
-    // Consulta SQL para verificar se o usuário existe
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Se o usuário for encontrado
-        echo "Login realizado com sucesso!";
-    } else {
-        // Se o usuário não for encontrado
-        echo "Email ou senha incorretos!";
+            // Verifica a senha utilizando password_verify
+            if (password_verify($senha, $usuario['senha'])) {
+                // Login bem-sucedido
+                header("Location: ../userHome.php");
+                exit();
+            } else {
+                // Senha incorreta
+                echo "Email ou senha incorretos!";
+            }
+        } else {
+            // Usuário não encontrado
+            echo "Email ou senha incorretos!";
+        }
     }
-}
-
-// Fechamento da conexão
-$conn->close();
 ?>
