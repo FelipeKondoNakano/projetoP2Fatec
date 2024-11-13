@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/style-cadastroGeral.css">
-    <title>Cadastrar Curso</title>
+    <title>Painel do Usuário</title>
 </head>
 
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="userHome.html">Home</a></p>
+        <p><a href="userHome.php">Home</a></p>
     </header>
 
     <nav class="menu">
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
-                <li><a href="cadastroInstituicao.html">Cadastrar Instituição</a></li>
-                <li><a href="cadastrarCurso.html">Cadastrar Curso</a></li>
-                <li><a href="cadastroUsuario.html">Cadastrar Usuário</a></li>
-                <li><a href="cadastrarMateria.html">Cadastrar Matéria</a></li>
+                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+                <li><a href="cadastroUsuario.php">Cadastrar Usuário</a></li>
+                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
             </ul>
         </li>
         <li><a href="#Cadastro">Visualização</a>
@@ -38,24 +38,28 @@
             </ul>
         </li>
     </nav>
-
+    
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-
+        
         <nav class="actions">
-            <button id="cadastro-curso">Cadastrar Curso</button>
-            <button id="reavaliar-curso">Reavaliar Curso</button>
-            <button id="pesquisar-curso">Pesquisar Curso</button>
+            <button id="cadastro-instituicao">Cadastrar Instituição</button>
+            <button id="reavaliar-instituicao">Reavaliar Instituição</button>
+            <button id="pesquisar-instituicao">Pesquisar Instituição</button>
         </nav>
 
         <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Curso</h3>
-
-            <form method="POST" action="script/cadastroCurso.php">
-                <input type="text" id="nome" name="nomeCurso" placeholder="Digite o nome do curso" required>
-
+            <h3>Cadastro de Instituição</h3>
+            
+            <form method="POST" action="script/cadastroIntituicao.php">
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome da instituição" required>
+                
+                <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required>
+                
+                <input type="text" id="estado" name="estado" placeholder="Digite o estado" required>
+                
                 <textarea id="comentario" name="inputTexto" placeholder="Deixe seu comentário" required></textarea>
-
+                
                 <label for="nota">Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
                     <input type="radio" id="star1" name="rating" value="1" />
@@ -69,8 +73,8 @@
                     <input type="radio" id="star5" name="rating" value="5" />
                     <label for="star5">★</label>
                 </div>
-
-                <button type="submit" name="submit">Cadastrar Curso</button>
+                
+                <button type="submit" name="submit">Cadastrar Instituição</button>
             </form>
         </section>
     </main>
@@ -80,11 +84,11 @@
     </footer>
 
     <script>
-        document.getElementById("cadastro-curso").onclick = function () {
+        document.getElementById("cadastro-instituicao").onclick = function() {
             document.getElementById("cadastroContainer").style.display = "block";
         };
-
-        document.getElementById("pesquisar-curso").onclick = function () {
+        
+        document.getElementById("pesquisar-instituicao").onclick = function() {
             // Lógica para pesquisar a instituição pode ser implementada aqui.
             alert("Funcionalidade de pesquisa ainda não implementada.");
         };

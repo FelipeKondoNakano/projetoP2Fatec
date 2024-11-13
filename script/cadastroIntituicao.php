@@ -1,18 +1,16 @@
 <!-- cadastro_instituicao.php -->
 <?php
-include('conexao.php'); 
+    include('configBD.php'); 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
+    if (isset($_POST['submit'])) {
+        $nome = $_POST['nome'];
+        $cidade = $_POST['cidade'];
+        $estado = $_POST['estado'];
+        $texto = $_POST['inputTexto'];
+        $stars = $_POST['rating'];
 
-    $query = "INSERT INTO instituicoes (nome, cidade, estado) VALUES ('$nome', '$cidade', '$estado')";
-    
-    if (mysqli_query($conn, $query)) {
-        echo "Instituição cadastrada com sucesso!";
-    } else {
-        echo "Erro: " . $query . "<br>" . mysqli_error($conn);
+        $resultado = mysqli_query($conexao, "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado','$texto','$stars')");
+        header("Location: ../cadastroInstituicao.php");
+        exit();
     }
-}
 ?>

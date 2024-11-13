@@ -8,7 +8,7 @@
         $avaliacao = $_POST['rating'];
 
         $resultado = mysqli_query($conexao, "INSERT INTO materias(materia,periodo,texto,avaliacao) VALUES('$materia','$periodo','$texto','$avaliacao')");   
-        header("Location: ../cadastrarMateria.html");
+        header("Location: ../cadastrarMateria.php");
         exit();
     }
 ?>

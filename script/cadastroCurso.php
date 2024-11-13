@@ -7,7 +7,7 @@
         $avaliacao = $_POST['rating'];
 
         $resultado = mysqli_query($conexao, "INSERT INTO cursos(curso,texto,avaliacao) VALUES('$curso','$texto','$avaliacao')");
-        header("Location: ../cadastrarCurso.html");
+        header("Location: ../cadastrarCurso.php");
         exit();
     }
 ?>

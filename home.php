@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/style-userHome.css">
+    <link rel="stylesheet" href="styles/style-home.css">
     <title>Sistema de Avaliação Educacional</title>
 </head>
 
@@ -11,50 +11,18 @@
 
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <section class="menu-right">
-            <section class="dropdown">
-                <p><a href="#">Aluno</a></p>
-                <section class="dropdown-content">
-                    <a href="perfil.html">Perfil</a>
-                    <a href="configuracoes.html">Configurações</a><!--Possível página futura-->
-                    <a href="login.html">Sair</a>
-                </section>
-            </section>
-        </section>
+        <p><a href="login.php">Login</a></p>
     </header>
 
-    <nav class="menu">
-        <li><a href="#Cadastro">Cadastrar</a>
-            <ul class="cadastro">
-                <li><a href="cadastroInstituicao.html">Cadastrar Instituição</a></li>
-                <li><a href="cadastrarCurso.html">Cadastrar Curso</a></li>
-                <li><a href="cadastroUsuario.html">Cadastrar Usuário</a></li>
-                <li><a href="cadastrarMateria.html">Cadastrar Matéria</a></li>
-            </ul>
-        </li>
-        <li><a href="#Cadastro">Visualização</a>
-            <ul class="visualizar">
-                <li><a href="#">Visualizar Instituições</a></li>
-                <li><a href="#">Visualizar Curso</a></li>
-                <li><a href="#">Visualizar Usuário</a></li>
-                <li><a href="#">Visualizar Matérias</a></li>
-            </ul>
-        </li>
-        <li><a href="#Avaliacao">Avaliações</a>
-            <ul class="avaliacao">
-                <li><a href="#">Avaliar Instituições</a></li>
-                <li><a href="#">Avaliar Cursos</a></li>
-                <li><a href="#">Avaliar Matérias</a></li>
-            </ul>
-        </li>
+    <nav class="alerta">
+        <h5>Para futuros estudantes, todas as informações e avaliaçãoes aqui presentes foram feitas pela comunidade de estudantes cadastrados no sistema.</h5>
     </nav>
 
     <section class="body">
         <section class="content">
             <h1 class="titulo">Como funciona nosso sistema web de avaliação?</h1>
             <p class="texto">Nosso sistema web permite que <span>estudantes do ensino superior</span>
-                compartilhem suas experiências e avaliações sobre<span> cursos, matérias e Instituições de
-                    Ensino</span>. Dessa forma, <span>futuros ingressantes</span>
+                compartilhem suas experiências e avaliações sobre<span> cursos, matérias e Instituições de Ensino</span>. Dessa forma, <span>futuros ingressantes</span>
                 têm acesso a <span>informações detalhadas e imparciais</span>, ajudando-os a tomar
                 decisões mais bem fundamentadas sobre onde e o que estudar.
             </p>
@@ -90,7 +58,7 @@
             <p class="texto">
                 <span>Matérias:</span> Se desejar, você também pode avaliar matérias específicas. Informe como é a
                 didática do professor, a abordagem dos conteúdos e o impacto da disciplina no curso. Avaliar matérias
-                insectioniduais ajuda futuros alunos a entender a fundo o que esperar do currículo.
+                individuais ajuda futuros alunos a entender a fundo o que esperar do currículo.
             </p>
         </section>
     </section>

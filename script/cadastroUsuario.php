@@ -19,12 +19,12 @@
             $senhaHash = password_hash($senha, PASSWORD_BCRYPT); // Utilizando bcrypt para criar o hash
 
             // Preparar a consulta para inserir os dados no banco
-            $resultado = mysqli_query($conexao, "INSERT INTO usuarios(nome, id, email, ra, instituicao, curso, periodo, senha) 
+            $resultado = mysqli_query($conexao, "INSERT INTO usuarios(nome, id, email, pk_Ra, instituicao, curso, periodo, senha) 
                                                 VALUES('$nome', '$id', '$email', '$ra', '$instituicao', '$curso', '$periodo', '$senhaHash')");
 
             if ($resultado) {
                 // Redirecionar para a página de login após o cadastro
-                header("Location: ../login.html");
+                header("Location: ../login.php");
                 exit(); 
             } else {
                 // Caso ocorra algum erro na inserção

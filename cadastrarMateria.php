@@ -10,16 +10,16 @@
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="userHome.html">Home</a></p>
+        <p><a href="userHome.php">Home</a></p>
     </header>
     
     <nav class="menu">
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
-                <li><a href="cadastroInstituicao.html">Cadastrar Instituição</a></li>
-                <li><a href="cadastrarCurso.html">Cadastrar Curso</a></li>
-                <li><a href="cadastroUsuario.html">Cadastrar Usuário</a></li>
-                <li><a href="cadastrarMateria.html">Cadastrar Matéria</a></li>
+                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+                <li><a href="cadastroUsuario.php">Cadastrar Usuário</a></li>
+                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
             </ul>
         </li>
         <li><a href="#Cadastro">Visualização</a>
