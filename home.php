@@ -17,7 +17,14 @@
     <nav class="alerta">
         <h5>Para futuros estudantes, todas as informações e avaliaçãoes aqui presentes foram feitas pela comunidade de estudantes cadastrados no sistema.</h5>
     </nav>
-
+    <!-- Formulário de pesquisa de instituição -->
+    <section class="search-section">
+        <form action="" method="POST">
+            <input type="text" name="nome_instituicao" placeholder="Digite o nome da instituição" required>
+            <button type="submit" name="pesquisar">Pesquisar</button>
+        </form>
+    </section>
+    
     <section class="body">
         <section class="content">
             <h1 class="titulo">Como funciona nosso sistema web de avaliação?</h1>
