@@ -13,32 +13,6 @@
         <p><a href="home.php">Home</a></p>
     </header>
 
-    <nav class="menu">
-        <li><a href="#Cadastro">Cadastrar</a>
-            <ul class="cadastro">
-                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
-                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
-                <li><a href="cadastroUsuario.php">Cadastrar Usuário</a></li>
-                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
-            </ul>
-        </li>
-        <li><a href="#Cadastro">Visualização</a>
-            <ul class="visualizar">
-                <li><a href="#">Visualizar Instituições</a></li>
-                <li><a href="#">Visualizar Curso</a></li>
-                <li><a href="#">Visualizar Usuário</a></li>
-                <li><a href="#">Visualizar Matérias</a></li>
-            </ul>
-        </li>
-        <li><a href="#Avaliacao">Avaliações</a>
-            <ul class="avaliacao">
-                <li><a href="#">Avaliar Instituições</a></li>
-                <li><a href="#">Avaliar Cursos</a></li>
-                <li><a href="#">Avaliar Matérias</a></li>
-            </ul>
-        </li>
-    </nav>
-
     <div class="cadastro-container">
         <h2>Cadastro de Usuário</h2>
         
