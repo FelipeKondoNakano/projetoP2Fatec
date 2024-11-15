@@ -12,7 +12,7 @@
 
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="home.php">Voltar para a Home</a></p>
+        <p><a href="home.php">Home</a></p>
     </header>
 
     <section class="login-container">
@@ -24,7 +24,7 @@
             <button type="submit" name="submit">Entrar</button>
         </form>
 
-        <p class="signup">Ainda não tem uma conta? <a href="cadastroUsuario.php">Cadastre-se aqui</a></p>
+        <p class="signup"><a href="recuperacaoSenha.php">Esqueceu sua senha?</a></p>
     </section>
 
     <footer class="foot">

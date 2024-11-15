@@ -12,6 +12,7 @@
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
         <p><a href="login.php">Login</a></p>
+        <p><a href="cadastroUsuario.php">Cadastre-se</a></p>
     </header>
 
     <nav class="alerta">
