@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style-visualicao.css">
+    <title>Visualização</title>
+</head>
+
+<body>
+    <header class="head">
+        <h1>Sistema de Avaliação Educacional</h1>
+        <section class="menu-right">
+            <section class="dropdown">
+                <p><a href="#">Aluno</a></p>
+                <section class="dropdown-content">
+                    <a href="perfil.html">Perfil</a>
+                    <a href="configuracoes.html">Configurações</a> <!--Possível página futura-->
+                    <a href="login.php">Sair</a>
+                </section>
+            </section>
+        </section>
+    </header>
+
+    <nav class="menu">
+        <li> <a href="userHome.php">Home</a></li>
+        <li><a href="#Cadastro">Cadastrar</a>
+            <ul class="cadastro">
+                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
+            </ul>
+        </li>
+
+        <li><a href="visualizacaoDados.html">Visualização</a></li>
+
+        <li><a href="#Avaliacao">Avaliações</a></li>
+    </nav>
+
+    <main class="home-container">
+        <h2>Painel do Usuário</h2>
+        <nav class="actions">
+            <button id="pesquisar-instituicao">Pesquisar Instituição</button>
+        </nav>
+
+        <section class="dados">
+            <!-- Tabela de visualização de dados -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome da Instituição</th>
+                        <th>Curso</th>
+                        <th>Matéria</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-dados">
+                    <!-- Dados da tabela serão preenchidos aqui dinamicamente -->
+                    <tr>
+                        <td>1</td>
+                        <td>Instituição Exemplo</td>
+                        <td>Curso de Computação</td>
+                        <td>Programação Web</td>
+                        <td><button>Ver Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Universidade ABC</td>
+                        <td>Engenharia Elétrica</td>
+                        <td>Cálculo I</td>
+                        <td><button>Ver Detalhes</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -23,7 +23,7 @@
         </section>
     </header>
 
-    <nav class="menu">
+<nav class="menu">
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
                 <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
@@ -31,20 +31,10 @@
                 <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
             </ul>
         </li>
-        <li><a href="#Cadastro">Visualização</a>
-            <ul class="visualizar">
-                <li><a href="#">Visualizar Instituições</a></li>
-                <li><a href="#">Visualizar Curso</a></li>
-                <li><a href="#">Visualizar Matérias</a></li>
-            </ul>
-        </li>
-        <li><a href="#Avaliacao">Avaliações</a>
-            <ul class="avaliacao">
-                <li><a href="#">Avaliar Instituições</a></li>
-                <li><a href="#">Avaliar Cursos</a></li>
-                <li><a href="#">Avaliar Matérias</a></li>
-            </ul>
-        </li>
+
+        <li><a href="visualizacaoDados.html">Visualização</a></li>
+
+        <li><a href="#Avaliacao">Avaliações</a></li>
     </nav>
 
     <section class="body">
