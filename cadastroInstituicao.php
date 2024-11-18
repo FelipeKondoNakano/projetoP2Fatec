@@ -29,16 +29,8 @@
     
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-        
-        <nav class="actions">
-            <button id="cadastro-instituicao">Cadastrar Instituição</button>
-            <button id="reavaliar-instituicao">Reavaliar Instituição</button>
-            <button id="pesquisar-instituicao">Pesquisar Instituição</button>
-        </nav>
-
-        <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Instituição</h3>
-            
+        <h3>Cadastro de Instituição</h3>
+        <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroIntituicao.php">
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome da instituição" required>
                 

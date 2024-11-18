@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between; /* Garante que os itens no header sejam distribuídos com espaço entre eles */
     align-items: center; /* Alinha os itens verticalmente no centro */
-    padding: 10px;
+    padding: 10px 20px;
 }
 .head h1 {
     font-size: larger;
@@ -24,11 +24,15 @@ body{
     padding-left: 20px;
 }
 
+.head .links{
+    display: flex;
+    gap: 15px;
+}
+
 .head p {
     color: rgb(255, 255, 255);
     font-size: medium;
-    margin-left: auto;
-    margin-right: 20px;
+    margin: 0;
 }
 
 .head p a {
