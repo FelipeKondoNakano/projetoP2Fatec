@@ -147,6 +147,42 @@ body {
 }
 /*-------Fim Menu horizontal (nav)-------*/
 
+/*-------Barra de Pesquisa-------*/
+.search-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: rgb(245, 245, 245);
+}
+.search-section form{
+    display: flex;
+    width: 60%;
+    max-width: 600px;
+}
+.search-section input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(184,115,51);
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+.search-section button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(184,115,51);
+    color: rgb(255,255,255);
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+.search-section button:hover{
+    background-color: rgb(150,90,45);
+}
+/*-------Fim Barra de Pesquisa-------*/
+
 /* Estilos básicos para a tabela */
 table {
     width: 100%;

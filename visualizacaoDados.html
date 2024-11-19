@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/style-visualicao.css">
+    <link rel="stylesheet" href="styles/style-visualizacao.css">
     <title>Visualização</title>
 </head>
 
@@ -38,10 +38,12 @@
     </nav>
 
     <main class="home-container">
-        <h2>Painel do Usuário</h2>
-        <nav class="actions">
-            <button id="pesquisar-instituicao">Pesquisar Instituição</button>
-        </nav>
+        <section class="search-section">
+            <form action="script/visualizacaoDados.php " method="POST">
+                <input type="text" name="nome_instituicao" placeholder="Digite o nome da instituição" required>
+                <button type="submit" name="pesquisar">Pesquisar</button>
+            </form>
+        </section>
 
         <section class="dados">
             <!-- Tabela de visualização de dados -->

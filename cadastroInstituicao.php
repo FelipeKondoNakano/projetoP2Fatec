@@ -29,6 +29,7 @@
     
     <main class="home-container">
         <h2>Painel do Usuário</h2>
+<<<<<<< HEAD
         
         <nav class="actions">
             <button id="cadastro-instituicao">Cadastrar Instituição</button>
@@ -39,6 +40,10 @@
         <section class="cadastro-container" id="cadastroContainer" style="display: none;">
             <h3>Cadastro de Instituição</h3>
             
+=======
+        <h3>Cadastro de Instituição</h3>
+        <section class="cadastro-container" id="cadastroContainer">
+>>>>>>> 20cee4fdcf27e2ede579024d7007bfa2a5cdf284
             <form method="POST" action="script/cadastroIntituicao.php">
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome da instituição" required>
                 
