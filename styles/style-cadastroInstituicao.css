@@ -152,6 +152,5 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(128, 128, 128);
-    position: fixed;
     bottom: 0;
 }

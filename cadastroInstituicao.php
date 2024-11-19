@@ -24,7 +24,7 @@
 
         <li><a href="visualizacaoDados.html">Visualização</a></li>
 
-        <li><a href="#Avaliacao">Avaliações</a></li>
+        <li><a href="avaliacao.html">Avaliações</a></li>
     </nav>
     
     <main class="home-container">
@@ -32,7 +32,7 @@
         
         <nav class="actions">
             <button id="cadastro-instituicao">Cadastrar Instituição</button>
-            <button id="reavaliar-instituicao">Reavaliar Instituição</button>
+            <button id="reavaliar-instituicao" href="reavaliacao.html">Reavaliar Instituição</button>
             <button id="pesquisar-instituicao">Pesquisar Instituição</button>
         </nav>
 

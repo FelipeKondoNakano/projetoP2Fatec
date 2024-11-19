@@ -34,7 +34,7 @@
 
         <li><a href="visualizacaoDados.html">Visualização</a></li>
 
-        <li><a href="#Avaliacao">Avaliações</a></li>
+        <li><a href="avaliacao.html">Avaliações</a></li>
     </nav>
 
     <section class="body">

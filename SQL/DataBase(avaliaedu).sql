@@ -38,6 +38,18 @@ CREATE TABLE IF NOT EXISTS cursos(
 );
 
 #TABELA DE AVALIZAÇÃO DAS INSTITUIÇÕES, CURSOS E MATERIAS
+#CREATE TABLE avaliacoes (
+#    id INT AUTO_INCREMENT PRIMARY KEY,
+#    user_id INT NOT NULL,
+#    instituicao_id INT NOT NULL,
+#    rating TINYINT NOT NULL,
+#    comentario TEXT NOT NULL,
+#    data_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#    UNIQUE(user_id, instituicao_id), -- Garante que o usuário avalie cada instituição apenas uma vez
+#    FOREIGN KEY (user_id) REFERENCES usuarios(id),
+#    FOREIGN KEY (instituicao_id) REFERENCES instituicoes(id)
+#);
+
 CREATE TABLE IF NOT EXISTS avaliacoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,

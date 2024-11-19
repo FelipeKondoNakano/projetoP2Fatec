@@ -95,7 +95,7 @@ body {
     color: rgb(150, 90, 45);
 }
 
-/* Link para cadastro */
+/* Link para recuperação de senha */
 .signup {
     margin-top: 15px;
     font-size: 14px;
@@ -119,6 +119,5 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(128, 128, 128);
-    position: fixed;
     bottom: 0;
 }
