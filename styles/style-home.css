@@ -16,11 +16,8 @@ body{
     display: flex;
     justify-content: space-between; /* Garante que os itens no header sejam distribuídos com espaço entre eles */
     align-items: center; /* Alinha os itens verticalmente no centro */
-<<<<<<< HEAD
     padding: 10px;
-=======
-    padding: 10px 20px;
->>>>>>> 20cee4fdcf27e2ede579024d7007bfa2a5cdf284
+
 }
 .head h1 {
     font-size: larger;
@@ -28,27 +25,12 @@ body{
     padding-left: 20px;
 }
 
-<<<<<<< HEAD
 .head p {
     color: rgb(255, 255, 255);
     font-size: medium;
     margin-left: auto;
     margin-right: 20px;
 }
-
-=======
-.head .links{
-    display: flex;
-    gap: 15px;
-}
-
-.head p {
-    color: rgb(255, 255, 255);
-    font-size: medium;
-    margin: 0;
-}
-
->>>>>>> 20cee4fdcf27e2ede579024d7007bfa2a5cdf284
 .head p a {
     text-decoration: none;
     color: rgb(255, 255, 255);
