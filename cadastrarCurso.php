@@ -29,16 +29,8 @@
 
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-
-        <nav class="actions">
-            <button id="cadastro-curso">Cadastrar Curso</button>
-            <button id="reavaliar-curso">Reavaliar Curso</button>
-            <button id="pesquisar-curso">Pesquisar Curso</button>
-        </nav>
-
-        <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Curso</h3>
-
+        <h3>Cadastro de Curso</h3>
+        <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroCurso.php">
                 <input type="text" id="nome" name="nomeCurso" placeholder="Digite o nome do curso" required>
 
@@ -66,17 +58,6 @@
     <footer class="foot">
         <p>&copy; Direitos Acadêmicos reservados</p>
     </footer>
-
-    <script>
-        document.getElementById("cadastro-curso").onclick = function () {
-            document.getElementById("cadastroContainer").style.display = "block";
-        };
-
-        document.getElementById("pesquisar-curso").onclick = function () {
-            // Lógica para pesquisar a instituição pode ser implementada aqui.
-            alert("Funcionalidade de pesquisa ainda não implementada.");
-        };
-    </script>
 </body>
 
 </html>

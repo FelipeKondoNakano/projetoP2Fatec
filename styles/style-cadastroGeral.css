@@ -6,8 +6,15 @@
 }
 
 body {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    flex: 1;
 }
 
 /* Header */
@@ -121,35 +128,12 @@ body {
     color: rgb(184, 115, 51);
 }
 
-/* Botões de ação */
-.actions {
-    margin-bottom: 20px;
-}
-
-.actions button {
-    padding: 10px 20px;
-    background-color: rgb(184, 115, 51);
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.actions button:hover {
-    background-color: #ffffff;
-    border: 1.5px solid rgb(150, 90, 45);
-    color: rgb(150, 90, 45);
-}
-
 /* Container do Cadastro da Instituição */
 .cadastro-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;;
+    width: 100%;
 }
 
 /* Estilos para o formulário */

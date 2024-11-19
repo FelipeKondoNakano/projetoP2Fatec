@@ -29,16 +29,8 @@
 
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-
-        <nav class="actions">
-            <button id="cadastro-materia">Cadastrar Matéria</button>
-            <button id="reavaliar-materia">Reavaliar Matéria</button>
-            <button id="pesquisar-materia">Pesquisar Matéria</button>
-        </nav>
-
-        <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Matéria</h3>
-
+        <h3>Cadastro de Matéria</h3>
+        <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroMateria.php">
                 <input type="text" id="nome" placeholder="Digite o nome da matéria" name="inputMateria" required>
 
@@ -68,17 +60,6 @@
     <footer class="foot">
         <p>&copy; Direitos Acadêmicos reservados</p>
     </footer>
-
-    <script>
-        document.getElementById("cadastro-materia").onclick = function () {
-            document.getElementById("cadastroContainer").style.display = "block";
-        };
-
-        document.getElementById("pesquisar-materia").onclick = function () {
-            // Lógica para pesquisar a instituição pode ser implementada aqui.
-            alert("Funcionalidade de pesquisa ainda não implementada.");
-        };
-    </script>
 </body>
 
 </html>
