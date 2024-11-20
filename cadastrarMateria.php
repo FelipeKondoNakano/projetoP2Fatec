@@ -37,7 +37,7 @@
                 <input type="text" id="nome" placeholder="Digite o nome da matéria" name="inputMateria" required>
                 
                 <label for="cursos">Selecione o Curso</label>
-                <select id="cursos" name="cursos" required>
+                <select id="cursos" name="inputCurso" required>
                     <option value="">Escolha um Curso</option>
                     <?php
                         // Conexão com o banco de dados

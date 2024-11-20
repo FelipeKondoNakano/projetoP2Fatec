@@ -29,10 +29,8 @@
     
     <main class="home-container">
         <h2>Painel do Usuário</h2>
-
-        <section class="cadastro-container" id="cadastroContainer" style="display: none;">
-            <h3>Cadastro de Instituição</h3>
-            
+        <h3>Cadastro de Instituição</h3>
+        <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroIntituicao.php">
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome da instituição" required>
                 
@@ -48,12 +46,6 @@
     <footer class="foot">
         <p>&copy; Direitos Acadêmicos reservados</p>
     </footer>
-
-    <script>
-        document.getElementById("cadastro-instituicao").onclick = function() {
-            document.getElementById("cadastroContainer").style.display = "block";
-        };
-    </script>
 </body>
 
 </html>

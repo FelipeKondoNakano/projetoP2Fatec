@@ -16,6 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `avaliacoes`
+--
+
+DROP TABLE IF EXISTS `avaliacoes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `avaliacoes` (
+  `pk_id_avaliacao` int NOT NULL AUTO_INCREMENT,
+  `texto` varchar(1000) NOT NULL,
+  `avaliacao` int NOT NULL,
+  `fk_instituicao` varchar(100) NOT NULL,
+  `fk_materia` varchar(100) NOT NULL,
+  `fk_curso` varchar(100) NOT NULL,
+  PRIMARY KEY (`pk_id_avaliacao`),
+  KEY `fk_avaliacao_instituicao` (`fk_instituicao`),
+  KEY `fk_avaliacao_materia` (`fk_materia`),
+  KEY `fk_avaliacao_curso` (`fk_curso`),
+  CONSTRAINT `fk_avaliacao_curso` FOREIGN KEY (`fk_curso`) REFERENCES `cursos` (`pk_curso`) ON DELETE CASCADE,
+  CONSTRAINT `fk_avaliacao_instituicao` FOREIGN KEY (`fk_instituicao`) REFERENCES `instituicoes` (`pk_instituicao`) ON DELETE CASCADE,
+  CONSTRAINT `fk_avaliacao_materia` FOREIGN KEY (`fk_materia`) REFERENCES `materias` (`pk_materia`) ON DELETE CASCADE,
+  CONSTRAINT `avaliacoes_chk_1` CHECK (((`avaliacao` >= 1) and (`avaliacao` <= 5)))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `avaliacoes`
+--
+
+LOCK TABLES `avaliacoes` WRITE;
+/*!40000 ALTER TABLE `avaliacoes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `avaliacoes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cursos`
 --
 
@@ -23,9 +57,11 @@ DROP TABLE IF EXISTS `cursos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cursos` (
-  `curso` varchar(100) NOT NULL,
-  `texto` varchar(500) NOT NULL,
-  `avaliacao` int NOT NULL
+  `pk_curso` varchar(100) NOT NULL,
+  `fk_instituicao` varchar(100) NOT NULL,
+  PRIMARY KEY (`pk_curso`),
+  KEY `fk_instituicao` (`fk_instituicao`),
+  CONSTRAINT `fk_instituicao` FOREIGN KEY (`fk_instituicao`) REFERENCES `instituicoes` (`pk_instituicao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,7 +71,7 @@ CREATE TABLE `cursos` (
 
 LOCK TABLES `cursos` WRITE;
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
-INSERT INTO `cursos` VALUES ('Análise e Desenvolvimento de Sitemas','Um bom curso para quem almeja área de programação',5);
+INSERT INTO `cursos` VALUES ('Análise e Desenvolvimento de Sistemas','Fatec'),('Marketing','Fatec'),('Produção Agropecuária','Fatec - Presidente Prudente');
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -47,11 +83,10 @@ DROP TABLE IF EXISTS `instituicoes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `instituicoes` (
-  `nome` varchar(100) NOT NULL,
+  `pk_instituicao` varchar(100) NOT NULL,
   `cidade` varchar(150) NOT NULL,
   `estado` varchar(150) NOT NULL,
-  `texto` varchar(500) NOT NULL,
-  `avaliacao` int NOT NULL
+  PRIMARY KEY (`pk_instituicao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,7 +96,7 @@ CREATE TABLE `instituicoes` (
 
 LOCK TABLES `instituicoes` WRITE;
 /*!40000 ALTER TABLE `instituicoes` DISABLE KEYS */;
-INSERT INTO `instituicoes` VALUES ('Fatec - Presidente Prudente','Presidente Prudente','São Paulo','Instituição muito bem estruturada',5);
+INSERT INTO `instituicoes` VALUES ('Fatec','Presidente Prudente','São Paulo'),('Fatec - Presidente Prudente','Presidente Prudente','São Paulo'),('Unesp','Presidente Prudente','São Paulo'),('Unoeste','Presidente Prudente','São Paulo');
 /*!40000 ALTER TABLE `instituicoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,10 +108,12 @@ DROP TABLE IF EXISTS `materias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `materias` (
-  `materia` varchar(100) NOT NULL,
+  `pk_materia` varchar(100) NOT NULL,
   `periodo` varchar(100) NOT NULL,
-  `texto` varchar(500) NOT NULL,
-  `avaliacao` int NOT NULL
+  `fk_curso` varchar(100) NOT NULL,
+  PRIMARY KEY (`pk_materia`),
+  KEY `fk_curso` (`fk_curso`),
+  CONSTRAINT `fk_curso` FOREIGN KEY (`fk_curso`) REFERENCES `cursos` (`pk_curso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,7 +123,7 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
-INSERT INTO `materias` VALUES ('Linguagem de Programação','Manhã','Matéria muito didática',5);
+INSERT INTO `materias` VALUES ('Banco de Dados','Noite','Análise e Desenvolvimento de Sistemas'),('Linguagem de Programação','Manhã','Análise e Desenvolvimento de Sistemas');
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,11 +139,15 @@ CREATE TABLE `usuarios` (
   `id` varchar(10) NOT NULL,
   `email` varchar(200) NOT NULL,
   `pk_Ra` varchar(15) NOT NULL,
-  `instituicao` varchar(100) NOT NULL,
-  `curso` varchar(150) NOT NULL,
+  `fk_instituicao` varchar(100) NOT NULL,
+  `fk_curso` varchar(100) NOT NULL,
   `periodo` varchar(50) NOT NULL,
   `senha` varchar(150) NOT NULL,
-  PRIMARY KEY (`pk_Ra`)
+  PRIMARY KEY (`pk_Ra`),
+  KEY `instituicao_fk` (`fk_instituicao`),
+  KEY `curso_fk` (`fk_curso`),
+  CONSTRAINT `curso_fk` FOREIGN KEY (`fk_curso`) REFERENCES `cursos` (`pk_curso`),
+  CONSTRAINT `instituicao_fk` FOREIGN KEY (`fk_instituicao`) REFERENCES `instituicoes` (`pk_instituicao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -116,7 +157,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Maria','109','maria@gmail.com','089785643','Unoeste','Cinemática','noturno','$2y$10$jN8aNzcjfhUlHYAb1HVPoOw0uUqsWmKjOSMlfP6gTFemKDtEE8pa2');
+INSERT INTO `usuarios` VALUES ('Mário','098','mario.italian@gmail.com','09876512304','Fatec','Análise e Desenvolvimento de Sistemas','diurno','$2y$10$i2UzxfFDie5pA6mBiyQoD.G25Ba4ZhC1zsnq9OujypxN1RL3BT6r.');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -129,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-13 16:27:23
+-- Dump completed on 2024-11-20 14:32:41
