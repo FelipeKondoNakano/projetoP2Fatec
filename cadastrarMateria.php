@@ -31,9 +31,10 @@
             </ul>
         </li>
 
-        <li><a href="#Cadastro">Visualização</a></li>
+        <li><a href="visualizacaoDados.php">Visualização</a></li>
 
-        <li><a href="#Avaliacao">Avaliações</a></li>
+        <li><a href="avaliacao.php">Avaliações</a></li>
+        <li><a href="reavaliacao.php">Reavaliações</a></li>
     </nav>
 
     <main class="home-container">

@@ -79,14 +79,15 @@ body {
 
 /*-------Fim Header-------*/
 
-/* Menu Horizontal */
 .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(128, 128, 128); /* Alterado para cinza */
+    background-color: rgb(128, 128, 128);
+    /* Alterado para cinza */
     margin: 0;
-    list-style: none; /* Remove os marcadores da lista */
+    list-style: none;
+    /* Remove os marcadores da lista */
 }
 
 .menu li {
@@ -96,7 +97,8 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: #ffffff; /* Cor do texto dos links para contrastar com o fundo cinza */
+    color: rgb(255, 255, 255);
+    /* Cor do texto dos links para contrastar com o fundo cinza */
     font-size: 16px;
     font-weight: bold;
     padding: 10px;
@@ -104,42 +106,48 @@ body {
 }
 
 .menu a:hover {
-    background-color: rgb(150, 90, 45); /* Adicionado um efeito de hover */
-    color: #ffffff;
+    background-color: rgb(150, 90, 45);
+    /* Adicionado um efeito de hover */
+    color: rgb(255, 255, 255);
 }
 
 /* Submenu Dropdown */
-.menu li:hover > .cadastro,
-.menu li:hover > .visualizar,
-.menu li:hover > .avaliacao {
+.menu li:hover>.cadastro,
+.menu li:hover>.visualizar,
+.menu li:hover>.avaliacao {
     display: block;
 }
 
-.menu li > ul {
+.menu li>ul {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgb(150, 90, 45); /* Cor de fundo dos submenus */
+    background-color: rgb(150, 90, 45);
+    /* Cor de fundo dos submenus */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    padding: 10px;
     min-width: 150px;
-    list-style: none; /* Remove os marcadores do submenu */
+    list-style: none;
+    /* Remove os marcadores do submenu */
 }
 
-.menu li > ul li {
+.menu li>ul li {
     margin: 5px 0;
 }
 
-.menu li > ul li a {
+.menu li>ul li a {
     color: #ffffff;
     padding: 8px 16px;
     font-size: 14px;
 }
 
-.menu li > ul li a:hover {
-    background-color: rgb(184, 115, 51); /* Efeito de hover no submenu */
+.menu li>ul li a:hover {
+    background-color: rgb(184, 115, 51);
+    /* Efeito de hover no submenu */
 }
+/*-------Fim Menu horizontal (nav)-------*/
 
 
 /* Container da Home */
