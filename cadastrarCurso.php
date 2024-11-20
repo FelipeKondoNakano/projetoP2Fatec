@@ -33,6 +33,22 @@
         <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroCurso.php">
                 <input type="text" id="nome" name="nomeCurso" placeholder="Digite o nome do curso" required>
+                <label for="instituicao">Selecione a Instituição</label>
+                <select id="instituicao" name="inputInstituicao" required>
+                    <option value="">Escolha uma Instituição</option>
+                    <?php
+                        // Conexão com o banco de dados
+                        include_once("script/configBD.php");
+
+                        $sql = "SELECT pk_instituicao FROM instituicoes"; // Aqui você deve trazer o campo de nome do curso
+                        $result = mysqli_query($conexao, $sql);
+
+                        // Loop para preencher os cursos no <select>
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo"<option value='" . $row["pk_instituicao"] . "'>" . $row["pk_instituicao"] . "</option>";
+                        }
+                    ?>
+                </select>
                 
                 <button type="submit" name="submit">Cadastrar Curso</button>
             </form>
