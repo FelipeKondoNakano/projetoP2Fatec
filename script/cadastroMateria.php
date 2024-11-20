@@ -4,10 +4,8 @@
     if(isset($_POST["submit"])){
         $materia = $_POST['inputMateria'];
         $periodo = $_POST['inputPeriodo'];
-        $texto = $_POST['inputTexto'];
-        $avaliacao = $_POST['rating'];
-
-        $resultado = mysqli_query($conexao, "INSERT INTO materias(materia,periodo,texto,avaliacao) VALUES('$materia','$periodo','$texto','$avaliacao')");   
+        $curso = $_POST['inputCurso'];
+        $resultado = mysqli_query($conexao, "INSERT INTO materias(pk_materia,periodo,fk_curso) VALUES('$materia','$periodo','$curso')");   
         header("Location: ../cadastrarMateria.php");
         exit();
     }

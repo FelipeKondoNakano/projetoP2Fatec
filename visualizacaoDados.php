@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -39,32 +39,31 @@
 
     <main class="home-container">
         <section class="search-section">
-            <form action="script/visualizacaoDados.php " method="POST">
+            <form  method="POST" action="script/visualizacaoDados.php">
                 <input type="text" name="nome_instituicao" placeholder="Digite o nome da instituição" required>
                 <button type="submit" name="pesquisar">Pesquisar</button>
             </form>
         </section>
 
         <section class="dados">
-            <table>
-                <?php
-                if (isset($result) && $result->num_rows > 0) {
-                    echo "<h2>Resultados encontrados:</h2>";
-                    echo "<table border='1'>";
-                    echo "<tr><th>Nome</th><th>Cidade</th><th>Estado</th></tr>";
-                    while ($row = $result->fetch_assoc()) {
+            <section class="visualizaDados">
+                <table>
+                    <?php
+                        require("script/visualizacaoDados.php");
+                        $listaInstituicao;
                         echo "<tr>
-                                <td>{$row['nome']}</td>
-                                <td>{$row['cidade']}</td>
-                                <td>{$row['estado']}</td>
+                                <th>Instituição</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
                             </tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "<p>Nenhuma instituição encontrada com o nome fornecido.</p>";
-                }
-                ?>
-            </table>
+                        while($instituicao = mysqli_fetch_assoc($listaInstituicao)){
+                            echo "<td>" . $instituicao["nome"] . "</td>";
+                            echo "<td>". $instituicao["cidade"] . "</td>";
+                            echo "<td>". $instituicao["estado"] . "</td>";
+                        }                
+                    ?>
+                </table>
+            </section>
         </section>
     </main>
     <script>

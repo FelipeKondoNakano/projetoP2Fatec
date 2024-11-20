@@ -6,8 +6,6 @@
         $nome = $_POST['nome'];
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
-        $texto = $_POST['inputTexto'];
-        $stars = $_POST['rating'];
 
         // Verifica se a instituição já está cadastrada
         $sql = "SELECT * FROM instituicoes WHERE nome = '$nome' AND cidade = '$cidade' AND estado = '$estado'";
@@ -18,7 +16,7 @@
         echo "<script>alert('Instituição já cadastrada.'); window.location.href = '../cadastroInstituicao.php';</script>";
         } else {
         // Insere a nova instituição no banco de dados
-        $sql = "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado', '$texto', '$stars')";
+        $sql = "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado')";
         if (mysqli_query($conexao, $sql)) {
             echo "<script>alert('Instituição cadastrada com sucesso!'); window.location.href = '../cadastroInstituicao.php';</script>";
         } else {
@@ -26,7 +24,7 @@
         }
     }
 
-        $resultado = mysqli_query($conexao, "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado','$texto','$stars')");
+        $resultado = mysqli_query($conexao, "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado')");
         header("Location: ../cadastroInstituicao.php");
         exit();
     }
