@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     periodo VARCHAR(50) NOT NULL,
     senha VARCHAR(150) NOT NULL,
     CONSTRAINT pk_Ra PRIMARY KEY(pk_Ra),
-    CONSTRAINT instituicao_fk FOREIGN KEY(fk_instituicao) REFERENCES instituicoes(pk_instituicao),
-    CONSTRAINT curso_fk FOREIGN KEY(fk_curso) REFERENCES cursos(pk_curso)
+    CONSTRAINT fk_instituicao FOREIGN KEY(fk_instituicao) REFERENCES instituicoes(pk_instituicao),
+    CONSTRAINT fk_curso FOREIGN KEY(fk_curso) REFERENCES cursos(pk_curso)
 );
 
 -- CRIANDO TABELA DE AVALIAÇÕES
@@ -55,40 +55,4 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
     CONSTRAINT fk_avaliacao_curso FOREIGN KEY (fk_curso) REFERENCES cursos(pk_curso) ON DELETE CASCADE
 );
 
-<<<<<<< HEAD
-#TABELA DE AVALIZAÇÃO DAS INSTITUIÇÕES, CURSOS E MATERIAS
-#CREATE TABLE avaliacoes (
-#    id INT AUTO_INCREMENT PRIMARY KEY,
-#    user_id INT NOT NULL,
-#    instituicao_id INT NOT NULL,
-#    rating TINYINT NOT NULL,
-#    comentario TEXT NOT NULL,
-#    data_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-#    UNIQUE(user_id, instituicao_id), -- Garante que o usuário avalie cada instituição apenas uma vez
-#    FOREIGN KEY (user_id) REFERENCES usuarios(id),
-#    FOREIGN KEY (instituicao_id) REFERENCES instituicoes(id)
-#);
-
-/*CREATE TABLE IF NOT EXISTS avaliacoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
-    instituicao_id INT DEFAULT NULL,
-    curso_id INT DEFAULT NULL,
-    materia_id INT DEFAULT NULL,
-    comentario TEXT,
-    avaliacao INT CHECK (avaliacao BETWEEN 0 AND 5),
-    data DATE DEFAULT CURRENT_DATE,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (instituicao_id) REFERENCES instituicoes(id),
-    FOREIGN KEY (curso_id) REFERENCES cursos(id),
-    FOREIGN KEY (materia_id) REFERENCES materias(id),
-    CONSTRAINT check_single_foreign_key CHECK (
-        (instituicao_id IS NOT NULL AND curso_id IS NULL AND materia_id IS NULL) OR
-        (instituicao_id IS NULL AND curso_id IS NOT NULL AND materia_id IS NULL) OR
-        (instituicao_id IS NULL AND curso_id IS NULL AND materia_id IS NOT NULL)
-    )
-);*/
-
-=======
->>>>>>> 2ece80220898c14d7292d31452d72309bd3c7702
 #Observação: Apenas a tabela de usuários possui uma primary-key, pois nas outras tabelas ocorrerá uma violação de chave primária;

@@ -209,25 +209,25 @@ body {
 
 /* Estrelas de avaliação */
 .stars {
-    margin-bottom: 10px;
-    max-width: 200px;
+    display: flex;
+    flex-direction: row-reverse; /* Inverte visualmente a direção */
+    justify-content: center;
 }
 
 .stars input {
-    display: none;
+    display: none; /* Esconde os inputs */
 }
 
 .stars label {
-    font-size: 24px;
-    color: #ccc;
+    font-size: 2rem; /* Tamanho da estrela */
+    color: gray;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease-in-out;
 }
 
 .stars input:checked ~ label,
-.stars label:hover,
-.stars label:hover ~ label {
-    color: rgb(184, 115, 51);
+.stars input:hover ~ label {
+    color: rgb(150, 90, 45); /* Cor das estrelas selecionadas ou ao passar o mouse */
 }
 
 /* Botão de Enviar */

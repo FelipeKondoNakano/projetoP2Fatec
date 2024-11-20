@@ -10,7 +10,16 @@
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="userHome.php">Home</a></p>
+        <section class="menu-right">
+            <section class="dropdown">
+                <p><a href="#">Aluno</a></p>
+                <section class="dropdown-content">
+                    <a href="perfil.html">Perfil</a> <!--Possível página futura-->
+                    <a href="configuracoes.html">Configurações</a> <!--Possível página futura-->
+                    <a href="login.php">Sair</a>
+                </section>
+            </section>
+        </section>
     </header>
     
     <nav class="menu">

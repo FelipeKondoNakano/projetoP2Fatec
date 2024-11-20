@@ -29,9 +29,9 @@
             </ul>
         </li>
 
-        <li><a href="visualizacaoDados.html">Visualização</a></li>
-        <li><a href="avaliacao.html">Avaliações</a></li>
-        <li><a href="reavaliacao.html">Reavaliações</a></li>
+        <li><a href="visualizacaoDados.php">Visualização</a></li>
+        <li><a href="avaliacao.php">Avaliações</a></li>
+        <li><a href="reavaliacao.php">Reavaliações</a></li>
     </nav>
 
     <main class="home-container">
