@@ -1,31 +1,46 @@
-<!-- cadastro_instituicao.php -->
 <?php
-    include('configBD.php'); 
+    // Supondo que você já tenha a conexão com o banco de dados em $conexao
+    include("configBD.php");
+    // Receber os dados do formulário
+    $nome = $_POST['nome'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
 
-    if (isset($_POST['submit'])) {
-        $nome = $_POST['nome'];
-        $cidade = $_POST['cidade'];
-        $estado = $_POST['estado'];
+    // Preparar a consulta para verificar se a instituição já existe
+    $sql = "SELECT pk_instituicao FROM instituicoes WHERE pk_instituicao = ? AND cidade = ? AND estado = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
 
-        // Verifica se a instituição já está cadastrada
-        $sql = "SELECT * FROM instituicoes WHERE nome = '$nome' AND cidade = '$cidade' AND estado = '$estado'";
-        $resultado = mysqli_query($conexao, $sql);
+    // Bind dos parâmetros
+    mysqli_stmt_bind_param($stmt, "sss", $nome, $cidade, $estado); // 'sss' indica que os três parâmetros são strings
 
-        if (mysqli_num_rows($resultado) > 0) {
-        // Exibe uma mensagem de erro se a instituição já existir
-        echo "<script>alert('Instituição já cadastrada.'); window.location.href = '../cadastroInstituicao.php';</script>";
+    // Executar a consulta
+    mysqli_stmt_execute($stmt);
+
+    // Obter o resultado da consulta
+    mysqli_stmt_store_result($stmt);
+
+    // Verificar se a instituição já existe
+    if (mysqli_stmt_num_rows($stmt) == 0) {
+        // Inserir a nova instituição
+        $insertSql = "INSERT INTO instituicoes (pk_instituicao, cidade, estado) VALUES (?, ?, ?)";
+        $insertStmt = mysqli_prepare($conexao, $insertSql);
+        
+        // Bind dos parâmetros
+        mysqli_stmt_bind_param($insertStmt, "sss", $nome, $cidade, $estado);
+        
+        // Executar a inserção
+        if (mysqli_stmt_execute($insertStmt)) {
+            echo "Instituição cadastrada com sucesso!";
         } else {
-        // Insere a nova instituição no banco de dados
-        $sql = "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado')";
-        if (mysqli_query($conexao, $sql)) {
-            echo "<script>alert('Instituição cadastrada com sucesso!'); window.location.href = '../cadastroInstituicao.php';</script>";
-        } else {
-            echo "Erro ao cadastrar a instituição: " . mysqli_error($conexao);
+            echo "Erro ao cadastrar a instituição.";
         }
+        
+        // Fechar a declaração de inserção
+        mysqli_stmt_close($insertStmt);
+    } else {
+        echo "Instituição já cadastrada.";
     }
 
-        $resultado = mysqli_query($conexao, "INSERT INTO instituicoes(nome, cidade, estado, texto, avaliacao) VALUES ('$nome', '$cidade', '$estado')");
-        header("Location: ../cadastroInstituicao.php");
-        exit();
-    }
+    // Fechar a declaração de verificação
+    mysqli_stmt_close($stmt);
 ?>
