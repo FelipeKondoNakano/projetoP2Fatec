@@ -90,6 +90,9 @@
             })
             .catch(error => console.error('Erro ao carregar os dados:', error));
     </script>
+    <footer class="foot">
+        <p>&copy; Direitos Acadêmicos reservados</p>
+    </footer>
 </body>
 
 </html>

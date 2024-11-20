@@ -2,30 +2,53 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/style-avaliacao.css">
-    <title>Avaliações</title>
+    <link rel="stylesheet" href="styles/style-avaliacaoReavaliacao.css"> <!-- Usando o mesmo estilo da avaliação -->
+    <title>Reavaliações</title>
 </head>
 <body>
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
-        <p><a href="userHome.php">Home</a></p>
+        <section class="menu-right">
+            <section class="dropdown">
+                <p><a href="#">Aluno</a></p>
+                <section class="dropdown-content">
+                    <a href="perfil.html">Perfil</a> <!-- Possível página futura -->
+                    <a href="configuracoes.html">Configurações</a> <!-- Possível página futura -->
+                    <a href="login.php">Sair</a>
+                </section>
+            </section>
+        </section>
     </header>
 
+    <nav class="menu">
+        <li><a href="#Cadastro">Cadastrar</a>
+            <ul class="cadastro">
+                <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
+                <li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+                <li><a href="cadastrarMateria.php">Cadastrar Matéria</a></li>
+            </ul>
+        </li>
+
+        <li><a href="visualizacaoDados.html">Visualização</a></li>
+        <li><a href="avaliacao.html">Avaliações</a></li>
+        <li><a href="reavaliacao.html">Reavaliações</a></li>
+    </nav>
+
     <main class="home-container">
-        <h2>Avaliações</h2>
+        <h2>Reavaliações</h2>
 
         <section class="avaliacao-container">
             <h3>
                 <?php
-                if ($etapa === 'instituicao') echo "Avaliar Instituição";
-                elseif ($etapa === 'curso') echo "Avaliar Curso";
-                elseif ($etapa === 'materia') echo "Avaliar Matéria";
+                if ($etapa === 'instituicao') echo "Reavaliar Instituição";
+                elseif ($etapa === 'curso') echo "Reavaliar Curso";
+                elseif ($etapa === 'materia') echo "Reavaliar Matéria";
                 ?>
             </h3>
 
             <!-- Formulário dinâmico baseado na etapa -->
             <?php if ($etapa === 'instituicao'): ?>
-            <form method="POST" action="script/avaliacao.php">
+            <form method="POST" action="script/reavaliacao.php">
                 <label for="instituicao">Selecione a Instituição</label>
                 <select id="instituicao" name="instituicao" required>
                     <option value="">-- Escolha uma Instituição --</option>
@@ -38,7 +61,7 @@
                     ?>
                 </select>
 
-                <label for="instituicao-nota">Avaliação (0 a 5 estrelas)</label>
+                <label for="instituicao-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
                     <input type="radio" id="instituicao-star1" name="instituicao_rating" value="1" required />
                     <label for="instituicao-star1">★</label>
@@ -52,11 +75,11 @@
                     <label for="instituicao-star5">★</label>
                 </div>
 
-                <textarea id="instituicao-comentario" name="instituicao_comentario" placeholder="Deixe seu comentário" required></textarea>
-                <button type="submit" name="instituicao_submit">Enviar Avaliação</button>
+                <textarea id="instituicao-comentario" name="instituicao_comentario" placeholder="Atualize seu comentário" required></textarea>
+                <button type="submit" name="instituicao_submit">Atualizar Avaliação</button>
             </form>
             <?php elseif ($etapa === 'curso'): ?>
-            <form method="POST" action="script/avaliacao.php">
+            <form method="POST" action="script/reavaliacao.php">
                 <label for="curso">Selecione o Curso</label>
                 <select id="curso" name="curso" required>
                     <option value="">-- Escolha um Curso --</option>
@@ -69,7 +92,7 @@
                     ?>
                 </select>
 
-                <label for="curso-nota">Avaliação (0 a 5 estrelas)</label>
+                <label for="curso-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
                     <input type="radio" id="curso-star1" name="curso_rating" value="1" required />
                     <label for="curso-star1">★</label>
@@ -83,11 +106,11 @@
                     <label for="curso-star5">★</label>
                 </div>
 
-                <textarea id="curso-comentario" name="curso_comentario" placeholder="Deixe seu comentário" required></textarea>
-                <button type="submit" name="curso_submit">Enviar Avaliação</button>
+                <textarea id="curso-comentario" name="curso_comentario" placeholder="Atualize seu comentário" required></textarea>
+                <button type="submit" name="curso_submit">Atualizar Avaliação</button>
             </form>
             <?php elseif ($etapa === 'materia'): ?>
-            <form method="POST" action="script/avaliacao.php">
+            <form method="POST" action="script/reavaliacao.php">
                 <label for="materia">Selecione a Matéria</label>
                 <select id="materia" name="materia" required>
                     <option value="">-- Escolha uma Matéria --</option>
@@ -100,7 +123,7 @@
                     ?>
                 </select>
 
-                <label for="materia-nota">Avaliação (0 a 5 estrelas)</label>
+                <label for="materia-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
                     <input type="radio" id="materia-star1" name="materia_rating" value="1" required />
                     <label for="materia-star1">★</label>
@@ -114,8 +137,8 @@
                     <label for="materia-star5">★</label>
                 </div>
 
-                <textarea id="materia-comentario" name="materia_comentario" placeholder="Deixe seu comentário" required></textarea>
-                <button type="submit" name="materia_submit">Enviar Avaliação</button>
+                <textarea id="materia-comentario" name="materia_comentario" placeholder="Atualize seu comentário" required></textarea>
+                <button type="submit" name="materia_submit">Atualizar Avaliação</button>
             </form>
             <?php endif; ?>
         </section>

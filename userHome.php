@@ -32,9 +32,10 @@
             </ul>
         </li>
 
-        <li><a href="visualizacaoDados.php">Visualização</a></li>
+        <li><a href="visualizacaoDados.html">Visualização</a></li>
 
         <li><a href="avaliacao.html">Avaliações</a></li>
+        <li><a href="reavaliacao.html">Reavaliações</a></li>
     </nav>
 
     <section class="body">
@@ -42,7 +43,7 @@
             <h1 class="titulo">Como funciona nosso sistema web de avaliação?</h1>
             <p class="texto">Nosso sistema web permite que <span>estudantes do ensino superior</span>
                 compartilhem suas experiências e avaliações sobre<span> cursos, matérias e Instituições de
-                    Ensino</span>. Dessa forma, <span>futuros ingressantes</span>
+                Ensino</span>. Dessa forma, <span>futuros ingressantes</span>
                 têm acesso a <span>informações detalhadas e imparciais</span>, ajudando-os a tomar
                 decisões mais bem fundamentadas sobre onde e o que estudar.
             </p>

@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
 );
 
 #TABELA DE AVALIZAÇÃO DAS INSTITUIÇÕES, CURSOS E MATERIAS
-<<<<<<< HEAD
 #CREATE TABLE avaliacoes (
 #    id INT AUTO_INCREMENT PRIMARY KEY,
 #    user_id INT NOT NULL,
@@ -61,10 +60,7 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
 #    FOREIGN KEY (instituicao_id) REFERENCES instituicoes(id)
 #);
 
-CREATE TABLE IF NOT EXISTS avaliacoes (
-=======
 /*CREATE TABLE IF NOT EXISTS avaliacoes (
->>>>>>> 20cee4fdcf27e2ede579024d7007bfa2a5cdf284
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
     instituicao_id INT DEFAULT NULL,

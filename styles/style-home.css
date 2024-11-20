@@ -14,7 +14,7 @@ body{
     height: 50px;
     background-color: rgb(184, 115, 51);
     display: flex;
-    justify-content: space-between; /* Garante que os itens no header sejam distribuídos com espaço entre eles */
+    justify-content: space-between;
     align-items: center; /* Alinha os itens verticalmente no centro */
     padding: 10px;
 
@@ -23,21 +23,31 @@ body{
     font-size: larger;
     color: rgb(255, 255, 255);
     padding-left: 20px;
+    padding-right: 65%;
 }
 
-.head p {
+.login {
+    display: flex;
+    justify-content: flex-end;
     color: rgb(255, 255, 255);
     font-size: medium;
-    margin-left: auto;
     margin-right: 20px;
 }
+.cadastro {
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    margin-right: 20px;
+}
+
 .head p a {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
 
 .head p a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 /*-------Fim Header-------*/
 
@@ -131,4 +141,4 @@ body{
     justify-content: center;
     background-color: rgb(128,128,128);
 }
-/*-------Fim Footer-------*/
+/*-------Fim Footer-------*/
