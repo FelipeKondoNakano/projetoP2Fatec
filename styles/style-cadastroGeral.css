@@ -144,13 +144,13 @@ main{
 }
 
 .cadastro-container label {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 8px;
     color: rgb(128, 128, 128);
-    font-size: 14px;
+    font-size: 20px;
 }
 
-.cadastro-container input,
-.cadastro-container textarea {
+.cadastro-container input {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #bdc3c7;
@@ -159,23 +159,19 @@ main{
     width: 100%;
 }
 
-/* Estilos para as estrelas */
-.stars {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.cadastro-container select{
     margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    resize: vertical;
+    transition: border-color 0.3s ease;
 }
-
-.stars input {
-    display: none; /* Oculta os inputs de radio */
-}
-
-.stars label {
-    font-size: 24px;
-    color: rgb(184, 115, 51);
-    cursor: pointer;
+.cadastro-container select:focus{
+    border-color: rgb(184, 115, 51);
+    outline: none;
 }
 
 /* Botão de cadastro da instituição */

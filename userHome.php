@@ -32,7 +32,7 @@
             </ul>
         </li>
 
-        <li><a href="visualizacaoDados.html">Visualização</a></li>
+        <li><a href="visualizacaoDados.php">Visualização</a></li>
 
         <li><a href="avaliacao.html">Avaliações</a></li>
     </nav>

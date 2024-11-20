@@ -25,7 +25,8 @@
             <input type="text" id="ra" name="inputRa" placeholder="Digite seu RA" required>
             
             <input type="text" id="instituicao" name="inputInstituicao" placeholder="Digite o nome da instituição" required>
-            
+            <input type="text" id="cidade" name="inputCidade" placeholder="Digite a cidade" required>
+            <input type="text" id="estado" name="inputEstado" placeholder="Digite o seu estado" required>
             <input type="text" id="curso" name="inputCurso" placeholder="Digite seu curso" required>
             
             <!-- Seleção de período -->

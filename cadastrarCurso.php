@@ -33,23 +33,7 @@
         <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroCurso.php">
                 <input type="text" id="nome" name="nomeCurso" placeholder="Digite o nome do curso" required>
-
-                <textarea id="comentario" name="inputTexto" placeholder="Deixe seu comentário" required></textarea>
-
-                <label for="nota">Avaliação (0 a 5 estrelas)</label>
-                <div class="stars">
-                    <input type="radio" id="star1" name="rating" value="1" />
-                    <label for="star1">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label for="star2">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label for="star3">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label for="star4">★</label>
-                    <input type="radio" id="star5" name="rating" value="5" />
-                    <label for="star5">★</label>
-                </div>
-
+                
                 <button type="submit" name="submit">Cadastrar Curso</button>
             </form>
         </section>

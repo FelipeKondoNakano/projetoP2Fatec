@@ -32,25 +32,27 @@
         <h3>Cadastro de Matéria</h3>
         <section class="cadastro-container" id="cadastroContainer">
             <form method="POST" action="script/cadastroMateria.php">
-                <input type="text" id="nome" placeholder="Digite o nome da matéria" name="inputMateria" required>
-
+                
                 <input type="text" id="estado" placeholder="Digite o período" name="inputPeriodo" required>
+                <input type="text" id="nome" placeholder="Digite o nome da matéria" name="inputMateria" required>
+                
+                <label for="cursos">Selecione o Curso</label>
+                <select id="cursos" name="cursos" required>
+                    <option value="">Escolha um Curso</option>
+                    <?php
+                        // Conexão com o banco de dados
+                        include_once("script/configBD.php");
 
-                <textarea id="comentario" placeholder="Deixe seu comentário" name="inputTexto" required></textarea>
+                        // Consulta para pegar os cursos
+                        $sql = "SELECT pk_curso FROM cursos"; // Aqui você deve trazer o campo de nome do curso
+                        $result = mysqli_query($conexao, $sql);
 
-                <label for="nota">Avaliação (0 a 5 estrelas)</label>
-                <div class="stars">
-                    <input type="radio" id="star1" name="rating" value="1" />
-                    <label for="star1">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label for="star2">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label for="star3">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label for="star4">★</label>
-                    <input type="radio" id="star5" name="rating" value="5" />
-                    <label for="star5">★</label>
-                </div>
+                        // Loop para preencher os cursos no <select>
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo"<option value='" . $row["pk_curso"] . "'>" . $row["pk_curso"] . "</option>";
+                        }
+                    ?>
+                </select>
 
                 <button type="submit" name="submit">Cadastrar Matéria</button>
             </form>
