@@ -58,7 +58,7 @@
                                 <th>Estado</th>
                             </tr>";
                         while($instituicao = mysqli_fetch_assoc($listaInstituicao)){
-                            echo "<td>" . $instituicao["nome"] . "</td>";
+                            echo "<td>" . $instituicao["pk_instituicao"] . "</td>";
                             echo "<td>". $instituicao["cidade"] . "</td>";
                             echo "<td>". $instituicao["estado"] . "</td>";
                         }                

@@ -21,6 +21,7 @@
     </header>
 
     <nav class="menu">
+        <li> <a href="userHome.php">Home</a></li>
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
                 <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>

@@ -21,6 +21,7 @@
     </header>
 
     <nav class="menu">
+        <li> <a href="userHome.php">Home</a></li>
         <li><a href="#Cadastro">Cadastrar</a>
             <ul class="cadastro">
                 <li><a href="cadastroInstituicao.php">Cadastrar Instituição</a></li>
@@ -30,6 +31,7 @@
         </li>
 
         <li><a href="visualizacaoDados.php">Visualização</a></li>
+
         <li><a href="avaliacao.php">Avaliações</a></li>
         <li><a href="reavaliacao.php">Reavaliações</a></li>
     </nav>
