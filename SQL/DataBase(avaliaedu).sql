@@ -37,9 +37,11 @@ CREATE TABLE IF NOT EXISTS usuarios (
     periodo VARCHAR(50) NOT NULL,
     senha VARCHAR(150) NOT NULL,
     CONSTRAINT pk_Ra PRIMARY KEY(pk_Ra),
-    CONSTRAINT fk_instituicao FOREIGN KEY(fk_instituicao) REFERENCES instituicoes(pk_instituicao),
-    CONSTRAINT fk_curso FOREIGN KEY(fk_curso) REFERENCES cursos(pk_curso)
+    CONSTRAINT instituicao_fk FOREIGN KEY(fk_instituicao) REFERENCES instituicoes(pk_instituicao),
+    CONSTRAINT curso_fk FOREIGN KEY(fk_curso) REFERENCES cursos(pk_curso)
 );
+
+
 
 -- CRIANDO TABELA DE AVALIAÇÕES
 CREATE TABLE IF NOT EXISTS avaliacoes (

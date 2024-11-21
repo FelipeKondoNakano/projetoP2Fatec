@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,7 +13,6 @@
 </head>
 
 <body>
-
     <header class="head">
         <h1>Sistema de Avaliação Educacional</h1>
         <p><a href="home.php">Home</a></p>
@@ -17,9 +20,34 @@
 
     <section class="login-container">
         <h2>Login</h2>
-        <form  method="POST" action="script/login.php">
-            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+        <!-- Exibe a mensagem de erro -->
+        <?php
+        if (isset($_SESSION['erro_login'])) {
+            echo "<p style='color: red; text-align: center;'>" . $_SESSION['erro_login'] . "</p>";
+            unset($_SESSION['erro_login']); // Remove a mensagem após exibir
+        }
+        ?>
+
+        <form method="POST" action="script/login.php">
+            <!-- Campo de email -->
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Digite seu email" 
+                required
+                value="<?php echo isset($_SESSION['email_preservado']) ? $_SESSION['email_preservado'] : ''; ?>"
+            >
+
+            <!-- Campo de senha -->
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Digite sua senha" 
+                required
+            >
 
             <button type="submit" name="submit">Entrar</button>
         </form>
@@ -30,7 +58,6 @@
     <footer class="foot">
         <p>&copy; Direitos Acadêmicos reservados</p>
     </footer>
-
 </body>
 
 </html>

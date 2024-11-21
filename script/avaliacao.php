@@ -3,7 +3,7 @@
     include('configBD.php');
 
     // Verificar etapa de avaliação
-    $etapa = isset($_GET['etapa']) ? $_GET['etapa'] : null; 
+    $etapa = isset($_SESSION['etapa']) ? $_SESSION['etapa'] : 'instituicao';
 
     // Processar formulários enviados
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

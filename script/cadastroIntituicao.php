@@ -2,7 +2,7 @@
     // Supondo que você já tenha a conexão com o banco de dados em $conexao
     include("configBD.php");
     // Receber os dados do formulário
-    $instituicao = $_POST['nome'];
+    $nome = $_POST['nome'];
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
 

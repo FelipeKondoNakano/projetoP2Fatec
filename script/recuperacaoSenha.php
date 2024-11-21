@@ -1,7 +1,10 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+require 'path/to/PHPMailer/src/Exception.php';
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
 
 require 'vendor/autoload.php'; // Certifique-se de ter o PHPMailer corretamente instalado via Composer
 
@@ -9,11 +12,11 @@ include("configBD.php");
 
 try {
     // Estabelecer a conexão com o banco de dados usando MySQLi
-    $conn = new mysqli($host, $username, $password, $database);
+    $conexao = new mysqli($host, $username, $password, $database);
 
     // Verificar conexão
-    if ($conn->connect_error) {
-        die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Erro na conexão com o banco de dados: " . $conexao->connect_error);
     }
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -21,7 +24,7 @@ try {
 
         if ($email) {
             // Consultar o banco para verificar se o e-mail existe
-            $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE email = ?");
+            $stmt = $conexao->prepare("SELECT senha FROM usuarios WHERE email = ?");
             $stmt->bind_param('s', $email);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -36,6 +39,7 @@ try {
 
                 try {
                     // Configuração do servidor SMTP
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                     $mail->isSMTP();
                     $mail->Host = 'smtp.gmail.com'; // Servidor SMTP (exemplo: Gmail)
                     $mail->SMTPAuth = true;
