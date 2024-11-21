@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*-------Header-------*/
+.head {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(184, 115, 51);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.head h1 {
+    font-size: larger;
+    color: rgb(255, 255, 255);
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-right .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.dropdown p {
+    color: rgb(255, 255, 255);
+    font-size: medium;
+}
+
+.dropdown p a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinha o dropdown ao lado direito */
+    background-color: rgb(150, 90, 45);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(184, 115, 51);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*-------Fim Header-------*/
+
+
+/* Menu Horizontal */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 128, 128);
+    /* Alterado para cinza */
+    margin: 0;
+    list-style: none;
+    /* Remove os marcadores da lista */
+}
+
+.menu li {
+    position: relative;
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    /* Cor do texto dos links para contrastar com o fundo cinza */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: rgb(150, 90, 45);
+    /* Adicionado um efeito de hover */
+    color: rgb(255, 255, 255);
+}
+
+/* Submenu Dropdown */
+.menu li:hover>.cadastro,
+.menu li:hover>.visualizar,
+.menu li:hover>.avaliacao {
+    display: block;
+}
+
+.menu li>ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(150, 90, 45);
+    /* Cor de fundo dos submenus */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 150px;
+    list-style: none;
+    /* Remove os marcadores do submenu */
+}
+
+.menu li>ul li {
+    margin: 5px 0;
+}
+
+.menu li>ul li a {
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.menu li>ul li a:hover {
+    background-color: rgb(184, 115, 51);
+    /* Efeito de hover no submenu */
+}
+/*-------Fim Menu horizontal (nav)-------*/
+
+/*-------Corpo-------*/
+.body {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    font-size: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.body .titulo {
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    max-width: 100%;
+}
+
+.body .texto {
+    padding: 15px;
+    max-width: 100%;
+    text-align: justify;
+}
+
+.body span {
+    color: rgb(255, 0, 0);
+    font-weight: bolder;
+}
+
+.body .content {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body img {
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/*-------Fim Corpo-------*/
+
+/*-------Footer-------*/
+.foot {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(128, 128, 128);
+}
+
+/*-------Fim Footer-------*/
