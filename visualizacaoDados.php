@@ -58,39 +58,17 @@
                                 <th>Estado</th>
                             </tr>";
                         while($instituicao = mysqli_fetch_assoc($listaInstituicao)){
+                            echo "<tr>";
                             echo "<td>" . $instituicao["pk_instituicao"] . "</td>";
                             echo "<td>". $instituicao["cidade"] . "</td>";
                             echo "<td>". $instituicao["estado"] . "</td>";
+                            echo "</tr>";
                         }                
                     ?>
                 </table>
             </section>
         </section>
     </main>
-    <script>
-        // Função para carregar os dados da tabela a partir do arquivo PHP
-        fetch('visualizacaoDados.php')
-            .then(response => response.json())
-            .then(data => {
-                const tabelaDados = document.getElementById('tabela-dados');
-
-                data.forEach(row => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${row.id}</td>
-                        <td>${row.usuario_nome}</td>
-                        <td>${row.instituicao_nome || 'N/A'}</td>
-                        <td>${row.curso || 'N/A'}</td>
-                        <td>${row.materia || 'N/A'}</td>
-                        <td>${row.avaliacao}</td>
-                        <td>${row.comentario}</td>
-                        <td>${row.data}</td>
-                    `;
-                    tabelaDados.appendChild(tr);
-                });
-            })
-            .catch(error => console.error('Erro ao carregar os dados:', error));
-    </script>
     <footer class="foot">
         <p>&copy; Direitos Acadêmicos reservados</p>
     </footer>

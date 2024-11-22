@@ -40,109 +40,101 @@
         <h2>Reavaliações</h2>
 
         <section class="avaliacao-container">
-            <h3>
-                <?php
-                if ($etapa === 'instituicao') echo "Reavaliar Instituição";
-                elseif ($etapa === 'curso') echo "Reavaliar Curso";
-                elseif ($etapa === 'materia') echo "Reavaliar Matéria";
-                ?>
-            </h3>
 
             <!-- Formulário dinâmico baseado na etapa -->
-            <?php if ($etapa === 'instituicao'): ?>
             <form method="POST" action="script/reavaliacao.php">
                 <label for="instituicao">Selecione a Instituição</label>
                 <select id="instituicao" name="instituicao" required>
                     <option value="">-- Escolha uma Instituição --</option>
                     <?php
-                    $sql = "SELECT id, nome FROM instituicoes";
+                    require_once("script/configBD.php");
+                    $sql = "SELECT pk_instituicao FROM instituicoes";
                     $resultado = mysqli_query($conexao, $sql);
                     while ($linha = mysqli_fetch_assoc($resultado)) {
-                        echo "<option value='" . $linha['id'] . "'>" . $linha['nome'] . "</option>";
+                        echo "<option value='" . $linha['pk_instituicao'] . "'>" . $linha['pk_instituicao'] . "</option>";
                     }
                     ?>
                 </select>
 
                 <label for="instituicao-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
-                    <input type="radio" id="instituicao-star1" name="instituicao_rating" value="1" required />
-                    <label for="instituicao-star1">★</label>
-                    <input type="radio" id="instituicao-star2" name="instituicao_rating" value="2" />
-                    <label for="instituicao-star2">★</label>
-                    <input type="radio" id="instituicao-star3" name="instituicao_rating" value="3" />
-                    <label for="instituicao-star3">★</label>
+                    <input type="radio" id="instituicao-star5" name="instituicao_rating" value="5" required />
+                    <label for="instituicao-star5">★</label>
                     <input type="radio" id="instituicao-star4" name="instituicao_rating" value="4" />
                     <label for="instituicao-star4">★</label>
-                    <input type="radio" id="instituicao-star5" name="instituicao_rating" value="5" />
-                    <label for="instituicao-star5">★</label>
+                    <input type="radio" id="instituicao-star3" name="instituicao_rating" value="3" />
+                    <label for="instituicao-star3">★</label>
+                    <input type="radio" id="instituicao-star2" name="instituicao_rating" value="2" />
+                    <label for="instituicao-star2">★</label>
+                    <input type="radio" id="instituicao-star1" name="instituicao_rating" value="1" />
+                    <label for="instituicao-star1">★</label>
                 </div>
 
                 <textarea id="instituicao-comentario" name="instituicao_comentario" placeholder="Atualize seu comentário" required></textarea>
                 <button type="submit" name="instituicao_submit">Atualizar Avaliação</button>
             </form>
-            <?php elseif ($etapa === 'curso'): ?>
+
             <form method="POST" action="script/reavaliacao.php">
                 <label for="curso">Selecione o Curso</label>
                 <select id="curso" name="curso" required>
                     <option value="">-- Escolha um Curso --</option>
                     <?php
-                    $sql = "SELECT id, nome FROM cursos";
+                    $sql = "SELECT pk_curso FROM cursos";
                     $resultado = mysqli_query($conexao, $sql);
                     while ($linha = mysqli_fetch_assoc($resultado)) {
-                        echo "<option value='" . $linha['id'] . "'>" . $linha['nome'] . "</option>";
+                        echo "<option value='" . $linha['pk_curso'] . "'>" . $linha['pk_curs5'] . "</option>";
                     }
                     ?>
                 </select>
 
                 <label for="curso-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
-                    <input type="radio" id="curso-star1" name="curso_rating" value="1" required />
-                    <label for="curso-star1">★</label>
-                    <input type="radio" id="curso-star2" name="curso_rating" value="2" />
-                    <label for="curso-star2">★</label>
-                    <input type="radio" id="curso-star3" name="curso_rating" value="3" />
-                    <label for="curso-star3">★</label>
+                    <input type="radio" id="curso-star5" name="curso_rating" value="5" required />
+                    <label for="curso-star5">★</label>
                     <input type="radio" id="curso-star4" name="curso_rating" value="4" />
                     <label for="curso-star4">★</label>
-                    <input type="radio" id="curso-star5" name="curso_rating" value="5" />
-                    <label for="curso-star5">★</label>
+                    <input type="radio" id="curso-star3" name="curso_rating" value="3" />
+                    <label for="curso-star3">★</label>
+                    <input type="radio" id="curso-star2" name="curso_rating" value="2" />
+                    <label for="curso-star2">★</label>
+                    <input type="radio" id="curso-star1" name="curso_rating" value="1" />
+                    <label for="curso-star1">★</label>
                 </div>
 
                 <textarea id="curso-comentario" name="curso_comentario" placeholder="Atualize seu comentário" required></textarea>
                 <button type="submit" name="curso_submit">Atualizar Avaliação</button>
             </form>
-            <?php elseif ($etapa === 'materia'): ?>
+
             <form method="POST" action="script/reavaliacao.php">
                 <label for="materia">Selecione a Matéria</label>
                 <select id="materia" name="materia" required>
                     <option value="">-- Escolha uma Matéria --</option>
                     <?php
-                    $sql = "SELECT id, nome FROM materias";
+                    $sql = "SELECT pk_materia FROM materias";
                     $resultado = mysqli_query($conexao, $sql);
                     while ($linha = mysqli_fetch_assoc($resultado)) {
-                        echo "<option value='" . $linha['id'] . "'>" . $linha['nome'] . "</option>";
+                        echo "<option value='" . $linha['pk_materia'] . "'>" . $linha['pk_materi5'] . "</option>";
                     }
                     ?>
                 </select>
 
                 <label for="materia-nota">Nova Avaliação (0 a 5 estrelas)</label>
                 <div class="stars">
-                    <input type="radio" id="materia-star1" name="materia_rating" value="1" required />
-                    <label for="materia-star1">★</label>
-                    <input type="radio" id="materia-star2" name="materia_rating" value="2" />
-                    <label for="materia-star2">★</label>
-                    <input type="radio" id="materia-star3" name="materia_rating" value="3" />
-                    <label for="materia-star3">★</label>
+                    <input type="radio" id="materia-star5" name="materia_rating" value="5" required />
+                    <label for="materia-star5">★</label>
                     <input type="radio" id="materia-star4" name="materia_rating" value="4" />
                     <label for="materia-star4">★</label>
-                    <input type="radio" id="materia-star5" name="materia_rating" value="5" />
-                    <label for="materia-star5">★</label>
+                    <input type="radio" id="materia-star3" name="materia_rating" value="3" />
+                    <label for="materia-star3">★</label>
+                    <input type="radio" id="materia-star2" name="materia_rating" value="2" />
+                    <label for="materia-star2">★</label>
+                    <input type="radio" id="materia-star1" name="materia_rating" value="1" />
+                    <label for="materia-star1">★</label>
                 </div>
 
                 <textarea id="materia-comentario" name="materia_comentario" placeholder="Atualize seu comentário" required></textarea>
                 <button type="submit" name="materia_submit">Atualizar Avaliação</button>
             </form>
-            <?php endif; ?>
         </section>
     </main>
 
